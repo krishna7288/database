@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+    <div class ="container-fluid" style="margin-top:90px;">
+    
+          <h3 class="page-header text-primary text-center">
+            <i class="fa fa-upload">UploadFile</i></h3>
+   
+    </div>
+    <div class="text-center" style="margin-top: 60px;">
+    <form enctype="multipart/form-data" method="POST" autocomplete="off" style="width: 500px; margin-left:35%">
+        {% csrf_token %}
+        {{ form1 | crispy }}  
+        <input type="submit" class="btn btn-primary btn-block" value ="upload">
+    </form>
+    </div>   
+    
+{% endblock %}

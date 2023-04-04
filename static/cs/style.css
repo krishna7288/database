@@ -1,0 +1,35 @@
+#butterfly{
+    margin-top: 40px;
+  
+    
+}
+
+#tree{
+    height: 70%;
+    width: 50%;
+    -webkit-box-reflect: right;
+                                                                    
+}
+
+#login:hover {
+    color: red;
+  }
+
+  #icon {
+    font-size: 2em;
+    color: #333;
+    text-shadow: 0 0 5px #fff;
+    transition: all 0.5s;
+  }
+  
+  #icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #fff;
+  }
+  
+#sasi{
+  text-align: center;
+  align-self: center;
+  display: inline-block;
+  float: none;
+}

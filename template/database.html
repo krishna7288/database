@@ -1,0 +1,93 @@
+{% extends "index.html" %}
+    {% load static %}
+    {% block content %}
+        <div class ="container-fluid" style="margin-top:90px;">
+        
+            <h3 class="text-center" id="login"><i class='fa fa-3x fa-user'>Database</i></h3>
+            
+        </div>
+        <img src="{% static 'image/free.png' %}" id="tree">
+        <div class="col-md-offset-4 col-md-4 well">
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        
+            <div  style="margin-top: 40; width:800px;" id="sasi">
+                <input type="text" name="search" id="search" placeholder="search" class="form-control"> 
+            </div>
+            
+    
+
+        <table class="table table-border">
+            <thead> 
+               
+                
+                <tr>
+                    <th>s/no</th>
+                    <th>filename</th>
+                    <th>myfile</th>
+                  
+                </tr>
+            </thead>
+            <tbody id="mytable">
+                {% for mydata in files %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                      
+                        <td><h1>{{ mydata.filename }}</h1></td>
+                        <td><a href="{{ mydata.myfile }}">myfiles</a></td>
+                  
+        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div style="margin-top: 30px;">
+            <table class="table table-border">
+                <thead>
+                   
+                    
+                    <tr>
+                        <th>s/no</th>
+                        <th>name</th>
+                        <th>age</th>
+                        <th>address</th>
+                        <th>mail</th>
+                    </tr>
+                </thead>
+                <tbody id="mytable">
+                    {% for mydata in data %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ mydata.name }}</td>
+                            <td>{{ mydata.age }}</td>
+                            <td>{{ mydata.address }}</td>
+                            <td>{{ mydata.mail }}</td>
+                        <td class="center"><a class="btn btn-danger"    href="delete/{{mydata.id}}">Delete</a></td>
+                        <td class="center"><a class="btn btn-primary"     href="update/{{mydata.id}}">Update</a></td>
+            
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </div>
+
+        <script>
+            $(document).ready(function() {
+                $('#search').keyup(function() {
+                   let value = $(this).val().toLowerCase();
+                    $('#mytable tr').filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                    }); 
+                }); 
+            });
+            </script>
+    {% endblock %}
+                                                                      
